@@ -1,0 +1,6 @@
+context_path: tutorial_taskq.run.ProjectContext
+project_name: "Tutorial TaskQ"
+project_version: "0.16.6"
+package_name: "tutorial_taskq"
+hooks:
+  - tutorial_taskq.hooks.project_hooks

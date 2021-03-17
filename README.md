@@ -1,5 +1,24 @@
 # Tutorial TaskQ
 
+## Conteúdo
+
+- [1. Introdução](#1-prerequisites)
+  * [1.1. O que é o TaskQ?](#11-install-docker-engine)
+  * [1.2. Como funciona o TaskQ?](#12-install-git)
+- [2. Instalação](#1-prerequisites)
+  * [2.1. Instalando o Screen](#11-install-docker-engine)
+  * [2.2. Instalando o TaskQ](#12-install-git)
+  * [2.3. Iniciando a fila de tarefas](#12-install-git)
+- [3. Uso](#1-prerequisites)
+  * [3.1. Criando um Workspace](#11-install-docker-engine)
+  * [3.2. Adicionando uma task na fila](#12-install-git)
+  * [3.3. Verificando a fila](#12-install-git)
+  * [3.4. Abortando uma task](#12-install-git)
+- [4. Utilizando o Docker](#1-prerequisites)
+  * [4.1. Build da imagem](#11-install-docker-engine)
+  * [4.2. Executando um experimento](#12-install-git)
+
+
 ## 1. Introdução
 
 ### 1.1. O que é o TaskQ?
@@ -119,13 +138,14 @@ taskq abort <task_id>
 As tarefas no TaskQ nada mais são que comandos. Nesse caso, para utilizar o Docker,
 os comandos necessários para fazer o *build* de uma imagem, assim como para rodar
 um container devem ser inseridos na fila. Para demonstrar a utilização, utilizaremos
-um exemplo de um projeto exemplo construído com o Kedro.
+um exemplo de um projeto exemplo construído com o Kedro, o qual está contido nesse
+repositório.
 
 ### 4.1. Build da imagem
 Para construir uma imagem, rode o seguinte comando:
 
 ```
-taskq add 'docker build -t <image_name> /path/to/dockerfile_context/'
+taskq add 'docker build -t tutorial-taskq /path/to/dockerfile_context/'
 ```
 
 Nesse comando, ```/path/to/dockerfile_context/``` se refere à pasta onde se
@@ -137,8 +157,10 @@ Após construir a imagem, ela pode ser utilziada para rodar um experimento em um
 container.
 
 ```
-taskq add 'docker run --rm --name <container_name> -v /host/dir:/container/dir <image_name> <command>'
+taskq add 'docker run --rm --name tutorial_taskq -v /host/dir:/usr/src/code tutorial-taskq kedro run'
 ```
 
+Para descobrir qual o endereço representado por ```/host/dir```, basta rodar o
+comando ```pwd``` dentro da pasta do repositório.
 É importante lembrar que o volume utilizado pelo container deve estar dentro do
 workspace configurado anteriormente.

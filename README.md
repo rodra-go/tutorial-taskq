@@ -1,5 +1,7 @@
 # Tutorial TaskQ
 
+O video com a execução dos passos do tutorial pode ser encontrado [aqui](https://youtu.be/hYGVK2__ZLs).
+
 ## Conteúdo
 
 - [1. Introdução](#1-introdução)

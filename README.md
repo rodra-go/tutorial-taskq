@@ -138,8 +138,7 @@ taskq abort <task_id>
 As tarefas no TaskQ nada mais são que comandos. Nesse caso, para utilizar o Docker,
 os comandos necessários para fazer o *build* de uma imagem, assim como para rodar
 um container devem ser inseridos na fila. Para demonstrar a utilização, utilizaremos
-um exemplo de um projeto exemplo construído com o Kedro, o qual está contido nesse
-repositório.
+um projeto exemplo construído com o Kedro, o qual está contido nesse repositório.
 
 ### 4.1. Build da imagem
 Para construir uma imagem, rode o seguinte comando:

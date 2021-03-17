@@ -85,9 +85,11 @@ específicos. Para configurar a pasta adequadamente, rode os seguintes comandos
 na pasta escolhida para trabalhar:
 
 ```
-sudo chown -R :100 /path/to/workspace
-sudo chmod -R g+rwxs /path/to/workspace
-sudo setfacl -d -m g::rwx /path/to/workspace
+cd ~
+mkdir workspace
+chown -R :100 ./workspace
+chmod -R g+rwxs ./workspace
+setfacl -d -m g::rwx ./workspace
 ```
 
 Os comandos acima configuram a pasta de modo que todos os arquivos criados nessa
